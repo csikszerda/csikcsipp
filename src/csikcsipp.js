@@ -57,6 +57,13 @@ async function main() {
     resetSecret();
   })
 
+  function fullscreen() {
+    document.body.requestFullscreen();
+  }
+  document.getElementById("fullscreen").addEventListener("click", _event => {
+    fullscreen();
+  })
+
   const secret = await getSecret();
   const initGetJwt = async function(secret) {
     let currentJwt = await generateJwt(secret);

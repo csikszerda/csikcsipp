@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <head>
   <script type="module" src="csikcsipp.js"></script>
+  <style>
+    body:fullscreen input {
+      visibility: hidden;
+    }
+  </style>
 </head>
 <body>
   <img src="https://media.tenor.com/fRuh5_0f86sAAAAC/ok-nom-nom.gif" id="original_gif" style="width: 100%"/>
   <div id="queue_size" style="font-family: monospace;"></div>
   <div id="error" style="font-family: monospace; color: red;"></div>
 
-  <input type="button" id="reset_secret" value="Reszet secret" />
+  <div style="display: grid; width: 100%;">
+    <input type="button" id="fullscreen" value="Fullscreen"  style="justify-self: start;"/>
+    <input type="button" id="reset_secret" value="Reszet secret" style="justify-self: end;" />
+  </div>
 </body>
