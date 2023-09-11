@@ -138,7 +138,7 @@ async function main() {
         "Authorization": `Bearer ${jwt}`
       },
       body: JSON.stringify({
-        "range": "raw_input!A:C",
+        "range": config.spreadsheet_range,
         "majorDimension": "ROWS",
         "values": values
       }),
