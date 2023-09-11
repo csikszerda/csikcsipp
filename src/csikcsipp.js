@@ -85,7 +85,7 @@ async function main() {
     if (event.key === "Enter") {
       try {
         const location = await locationPromise;
-        const time = (new Date()).toISOString()
+        const time = new Date();
         await enqueueRawInput(`${location.coords.latitude},${location.coords.longitude}`, time, keyBuffer)
         unfreezeGif();
         scheduleGifFreeze();
@@ -121,16 +121,21 @@ async function main() {
   function freezeGif() {
     if (gifImgParent.contains(gifImg)) {
       gifImgParent.replaceChild(frozenGifImg, gifImg);
+      const element = document.getElementById("floatingtext");
+      element.textContent = "";
     }
   }
   function unfreezeGif() {
     if (gifImgParent.contains(frozenGifImg)) {
       gifImgParent.replaceChild(gifImg, frozenGifImg);
+      const element = document.getElementById("floatingtext");
+      element.textContent = "nyam nyam";
     }
   }
   freezeGif();
 
   async function sendDataToSheets(config, jwt, values) {
+    if (values.length > 0) return;
     const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheet_id}/values/${config.spreadsheet_range}:append?valueInputOption=RAW`,
     {
       method: "POST",
@@ -204,8 +209,9 @@ async function main() {
   poke();
   
   async function enqueueRawInput(location, time, id) {
+    const formattedDateKey = `${time.getFullYear()}` + "-" + `${time.getMonth() + 1}`.padStart(2, "0") + "-" + `${time.getDate()}`.padStart(2, "0") + "|" + id;
     const queue = JSON.parse(window.localStorage.getItem("raw_input_queue") ?? "[]");
-    queue.push([location, time, id]);
+    queue.push([location, time.toISOString(), id, formattedDateKey]);
     window.localStorage.setItem("raw_input_queue", JSON.stringify(queue));
     setDisplayQueueSize(queue.length);
     poke();
