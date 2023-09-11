@@ -135,7 +135,6 @@ async function main() {
   freezeGif();
 
   async function sendDataToSheets(config, jwt, values) {
-    if (values.length > 0) return;
     const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheet_id}/values/${config.spreadsheet_range}:append?valueInputOption=RAW`,
     {
       method: "POST",
