@@ -18,9 +18,7 @@ const nayGifs = [
 
 function chooseForDay(gifs) {
   const daysSinceEpoch = Math.floor(new Date() / (1000 * 60 * 60 * 24));
-  console.log(daysSinceEpoch.toString());
   const hash = nacl.hash(new TextEncoder().encode(daysSinceEpoch.toString()));
-  console.log(hash);
   const i = new DataView(hash.buffer, 0).getUint32();
   return gifs[i % gifs.length];
 }
@@ -205,7 +203,6 @@ async function main() {
   gifImgParent.replaceChild(yayGifImg, origGifImg);
   function findCurrentImgOrCanvas() {
     for (const node of gifImgParent.childNodes) {
-      console.log(node.nodeName);
       if (node.nodeName === "IMG" || node.nodeName === "CANVAS") {
         return node;
       }
