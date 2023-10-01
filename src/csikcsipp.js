@@ -192,8 +192,10 @@ async function main() {
   }
   const yayGifImg = new Image();
   yayGifImg.src = yayGifUrl;
+  yayGifImg.style = "width: 100%";
   const nayGifImg = new Image();
   nayGifImg.src = nayGifUrl;
+  nayGifImg.style = "width: 100%";
   await Promise.all([waitForImgLoad(yayGifImg), waitForImgLoad(nayGifImg)]);
   const frozenYayGifImg = createFrozenGifImg(yayGifImg);
   const frozenNayGifImg = createFrozenGifImg(nayGifImg);
