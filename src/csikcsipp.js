@@ -18,7 +18,7 @@ const nayGifs = [
 ];
 
 function chooseForDay(gifs) {
-  const daysSinceEpoch = Math.floor(new Date() / (1000 * 60 * 60 * 24)) + 2;
+  const daysSinceEpoch = Math.floor(new Date() / (1000 * 60 * 60 * 24));
   const hash = nacl.hash(new TextEncoder().encode(daysSinceEpoch.toString()));
   const i = new DataView(hash.buffer, 0).getUint32();
   return gifs[i % gifs.length];
