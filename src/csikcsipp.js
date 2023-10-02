@@ -8,6 +8,7 @@ const yayGifs = [
   ["https://media.tenor.com/V6B8eapBp6kAAAAC/little-girl-smile.gif", 1.5, "ügyi"],
   ["https://media.tenor.com/pUW_A10-46MAAAAC/toddlers-and-tiaras-big-grin.gif", 2.0, "íídejó"],
   ["https://media.tenor.com/po2_lvZOAqQAAAAC/excited-little-girl.gif", 1.5, "széép"],
+  ["./static/gifs/meghajlas.gif", 2.0, "köszi"],
 ];
 const nayGifs = [
   ["https://media.tenor.com/1NHZzGKTmYwAAAAC/little-girl-meme.gif", 1.5, "ezmiez"],
@@ -17,7 +18,7 @@ const nayGifs = [
 ];
 
 function chooseForDay(gifs) {
-  const daysSinceEpoch = Math.floor(new Date() / (1000 * 60 * 60 * 24));
+  const daysSinceEpoch = Math.floor(new Date() / (1000 * 60 * 60 * 24)) + 2;
   const hash = nacl.hash(new TextEncoder().encode(daysSinceEpoch.toString()));
   const i = new DataView(hash.buffer, 0).getUint32();
   return gifs[i % gifs.length];
