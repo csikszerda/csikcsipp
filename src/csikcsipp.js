@@ -140,7 +140,7 @@ async function main() {
     let genTime = new Date();
     return async () => {
       const currentTime = new Date();
-      if (currentTime - genTime > 30 * 1000 * 1000) {
+      if (currentTime - genTime > 30 * 60 * 1000) {
         currentJwt = await generateJwt();
       }
       return currentJwt;
