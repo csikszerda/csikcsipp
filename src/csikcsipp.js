@@ -197,7 +197,6 @@ async function main() {
   nayGifImg.style = "width: 100%";
   await Promise.all([waitForImgLoad(yayGifImg), waitForImgLoad(nayGifImg)]);
   const frozenYayGifImg = createFrozenGifImg(yayGifImg);
-  const frozenNayGifImg = createFrozenGifImg(nayGifImg);
 
   const origGifImg = document.images.namedItem("original_gif");
   const gifImgParent = origGifImg.parentNode;
@@ -313,7 +312,7 @@ async function main() {
   async function enqueueRawInput(location, time, id) {
     if (id === lastEnqueuedId) {
       // dedupe
-      return;
+      // return;
     } else {
       lastEnqueuedId = id;
     }
