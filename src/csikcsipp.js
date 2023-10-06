@@ -18,7 +18,8 @@ const nayGifs = [
 ];
 
 function chooseForDay(gifs) {
-  const weeksSinceEpoch = Math.floor(new Date() / (1000 * 60 * 60 * 24 * 7));
+  const weeksSinceEpoch = Math.floor(((new Date() / (1000 * 60 * 60 * 24) - 2) / 7) - 7); // -2 day offset so that it changes on Sat. The week offset is arbitrary.
+  console.log(weeksSinceEpoch);
   const hash = nacl.hash(new TextEncoder().encode(weeksSinceEpoch.toString()));
   const i = new DataView(hash.buffer, 0).getUint32();
   return gifs[i % gifs.length];
