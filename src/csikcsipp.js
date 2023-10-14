@@ -309,6 +309,8 @@ async function main() {
   const noSleep = new NoSleep();
   noSleep.enable();
 
+  const validCode = /(CSIK)?(\d{10})/;
+
   let lastEnqueuedId = null;
   async function enqueueRawInput(location, time, id) {
     if (id === lastEnqueuedId) {
@@ -317,11 +319,13 @@ async function main() {
     } else {
       lastEnqueuedId = id;
     }
-    if (!lastEnqueuedId.startsWith("CSIK")) {
+    const codeMatch = id.match(validCode);
+    if (codeMatch === null) {
       // invalid ID
       displayMessageWithGifUnfreeze(nayGifImg, nayGifDelay, "red", nayGifText);
       return;
     }
+    id = "CSIK" + codeMatch[2]; // CSIK prefix is optional
     const formattedDateKey = `${time.getFullYear()}` + "-" + `${time.getMonth() + 1}`.padStart(2, "0") + "-" + `${time.getDate()}`.padStart(2, "0") + "|" + id;
     const queue = JSON.parse(window.localStorage.getItem("raw_input_queue") ?? "[]");
     queue.push([location, time.toISOString(), id, formattedDateKey]);
