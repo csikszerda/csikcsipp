@@ -332,7 +332,7 @@ async function main() {
     window.localStorage.setItem("raw_input_queue", JSON.stringify(queue));
     setDisplayQueueSize(queue.length);
     poke();
-    displayMessageWithGifUnfreeze(yayGifImg, yayGifDelay, "forestgreen", yayGifText);
+    displayMessageWithGifUnfreeze(yayGifImg, yayGifDelay, "white", yayGifText);
   }
 
 }
