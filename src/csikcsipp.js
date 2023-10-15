@@ -3,18 +3,18 @@ import * as jose from "https://cdnjs.cloudflare.com/ajax/libs/jose/4.14.4/index.
 const encryptedSecret = {"secret":"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","nonce":"6CfeTkjfZ88IsLfkjYp72qa00ToFpT6y"};
 
 const yayGifs = [
-  ["https://media.tenor.com/fRuh5_0f86sAAAAC/ok-nom-nom.gif", 1.5, "✅"],
-  ["https://media.tenor.com/8ZDLU43omvcAAAAC/kid-thumbs-up.gif", 2.5, "✅"],
-  ["https://media.tenor.com/V6B8eapBp6kAAAAC/little-girl-smile.gif", 1.5, "✅"],
-  ["https://media.tenor.com/pUW_A10-46MAAAAC/toddlers-and-tiaras-big-grin.gif", 2.0, "✅"],
-  ["https://media.tenor.com/po2_lvZOAqQAAAAC/excited-little-girl.gif", 1.5, "✅"],
-  ["./static/gifs/meghajlas.gif", 2.0, "köszi"],
+  ["https://media.tenor.com/fRuh5_0f86sAAAAC/ok-nom-nom.gif", 1.5, "100vw", "✔"],
+  ["https://media.tenor.com/8ZDLU43omvcAAAAC/kid-thumbs-up.gif", 2.5, "100vw", "✔"],
+  ["https://media.tenor.com/V6B8eapBp6kAAAAC/little-girl-smile.gif", 1.5, "100vw", "✔"],
+  ["https://media.tenor.com/pUW_A10-46MAAAAC/toddlers-and-tiaras-big-grin.gif", 2.0, "100vw", "✔"],
+  ["https://media.tenor.com/po2_lvZOAqQAAAAC/excited-little-girl.gif", 1.5, "100vw", "✔"],
+  ["./static/gifs/meghajlas.gif", 2.0, "100vw", "✔"],
 ];
 const nayGifs = [
-  ["https://media.tenor.com/1NHZzGKTmYwAAAAC/little-girl-meme.gif", 1.5, "ezmiez"],
-  ["https://media.tenor.com/djf8Lr3DdPwAAAAC/awkward-confused.gif", 2.0, "izé"],
-  ["https://media.tenor.com/lJb3NfIsVg4AAAAC/kid-awkward.gif", 2.0, "nemértem"],
-  ["https://media.tenor.com/XTiqQYf6f_UAAAAd/no-donkeys.gif", 1.5, "nem"],
+  ["https://media.tenor.com/1NHZzGKTmYwAAAAC/little-girl-meme.gif", 1.5, "20vw", "ezmiez"],
+  ["https://media.tenor.com/djf8Lr3DdPwAAAAC/awkward-confused.gif", 2.0, "20vw", "izé"],
+  ["https://media.tenor.com/lJb3NfIsVg4AAAAC/kid-awkward.gif", 2.0, "20vw", "nemértem"],
+  ["https://media.tenor.com/XTiqQYf6f_UAAAAd/no-donkeys.gif", 1.5, "20vw", "nem"],
 ];
 
 function chooseForDay(gifs) {
@@ -27,12 +27,14 @@ function chooseForDay(gifs) {
 const yayGif = chooseForDay(yayGifs);
 const yayGifUrl = yayGif[0];
 const yayGifDelay = yayGif[1];
-const yayGifText = yayGif[2];
+const yayGifSize = yayGif[2];
+const yayGifText = yayGif[3];
 
 const nayGif = chooseForDay(nayGifs);
 const nayGifUrl = nayGif[0];
 const nayGifDelay = nayGif[1];
-const nayGifText = nayGif[2];
+const nayGifSize = nayGif[2];
+const nayGifText = nayGif[3];
 
 function toBase64(u8) {
   return btoa(String.fromCharCode.apply(null, u8));
@@ -223,11 +225,12 @@ async function main() {
     const currentImg = findCurrentImgOrCanvas();
     gifImgParent.replaceChild(img, currentImg);
   }
-  function displayMessageWithGifUnfreeze(img, delay, textColor, text) {
+  function displayMessageWithGifUnfreeze(img, delay, fontSize, textColor, text) {
     unfreezeGif(img);
     const element = document.getElementById("floatingtext");
     element.textContent = text;
     element.style.color = textColor;
+    element.style.fontSize = fontSize;
     scheduleGifFreeze(delay);
   }
   freezeGif();
@@ -322,7 +325,7 @@ async function main() {
     const codeMatch = id.match(validCode);
     if (codeMatch === null) {
       // invalid ID
-      displayMessageWithGifUnfreeze(nayGifImg, nayGifDelay, "red", nayGifText);
+      displayMessageWithGifUnfreeze(nayGifImg, nayGifDelay, nayGifSize, "red", nayGifText);
       return;
     }
     id = "CSIK" + codeMatch[2]; // CSIK prefix is optional
@@ -332,7 +335,7 @@ async function main() {
     window.localStorage.setItem("raw_input_queue", JSON.stringify(queue));
     setDisplayQueueSize(queue.length);
     poke();
-    displayMessageWithGifUnfreeze(yayGifImg, yayGifDelay, "white", yayGifText);
+    displayMessageWithGifUnfreeze(yayGifImg, yayGifDelay, yayGifSize, "lightgreen", yayGifText);
   }
 
 }
