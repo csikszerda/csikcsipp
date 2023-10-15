@@ -21,7 +21,7 @@ print("Generating SVGs")
 with open('people.csv') as people_csv:
   reader = csv.DictReader(people_csv)
   for row in reader:
-    if row["print_set_1"] == "":
+    if row["print_set_1"] != "TRUE":
       continue
 
     master_svg.xpath("//*[@id='first_row']")[0].text = row['first_row']
@@ -31,7 +31,7 @@ with open('people.csv') as people_csv:
     Code128(row['barcode'][4:], writer=barcode_writer).write(barcode_stream)
     barcode_svg = etree.fromstring(barcode_stream.getvalue())
 
-    barcode_group = master_svg.xpath("//*[@id='barcode_group']")[0]
+    barcode_group = master_svg.xpath("//*[@id='barcode-group']")[0]
 
     for child in barcode_group.getchildren():
       barcode_group.remove(child)

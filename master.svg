@@ -7,8 +7,44 @@
    y="0px"
    viewBox="0 0 323.51999 204"
    version="1.1"
+   sodipodi:docname="master.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview61646"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="in"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="1.4735812"
+     inkscape:cx="68.201195"
+     inkscape:cy="83.470119"
+     inkscape:window-width="1920"
+     inkscape:window-height="1056"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="barcode">
+    <sodipodi:guide
+       position="112.94516,118.24534"
+       orientation="1,0"
+       id="guide61971"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="297.84057,21.614483"
+       orientation="1,0"
+       id="guide61973"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
   <defs
      id="defs284">
     <clipPath
@@ -41,53 +77,8 @@
     </clipPath>
   </defs>
   <g
-     id="layer4">
-    <g
-       id="barcode_group"
-       transform="scale(4.48 3) translate(-7.5 -0.3)">
-    </g>
-  </g>
-  <g
-     id="layer3"
-     style="display:inline">
-    <path
-       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 1.8297563,123.0856 218.90602,154.156 H 321.888 v 47.88822 L 3.5386426,202.47288 Z"
-       id="path2798" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.2045px;line-height:1.25;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.430111"
-       x="314.07568"
-       y="174.38844"
-       id="name"><tspan
-         id="first_row"
-         x="314.07568"
-         y="174.38844"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold';stroke-width:0.430111">Chilton</tspan><tspan
-         x="314.07568"
-         y="195.89407"
-         id="second_row"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans';stroke-width:0.430111">Patrick</tspan></text>
-    <path
-       style="fill:none;stroke:#cecece;stroke-width:0.755906;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       d="M 9.9779528,0.37795299 H 0.37795275 V 9.977953"
-       id="path13483" />
-    <path
-       style="fill:none;stroke:#cecece;stroke-width:0.755906;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       d="M 9.9779528,203.6 H 0.37795275 V 194"
-       id="path13494" />
-    <path
-       style="fill:none;stroke:#cecece;stroke-width:0.755906;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       d="m 313.25,203.6 h 9.6 V 194"
-       id="path13496" />
-    <path
-       style="fill:none;stroke:#cecece;stroke-width:0.755906;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       d="m 313.25,0.385 h 9.6 V 9.977953"
-       id="path13507" />
-  </g>
-  <g
      id="layer1"
-     transform="matrix(0.66699092,0,0,0.66699092,4.1738989,2.618983)"
+     transform="matrix(0.47312424,0,0,0.47312424,32.611462,-17.666682)"
      style="fill:#ffffff">
     <g
        id="g574"
@@ -351,4 +342,229 @@
       </g>
     </g>
   </g>
+  <path
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 1.8297563,123.0856 218.90602,154.156 H 321.888 v 47.88822 L 3.5386426,202.47288 Z"
+     id="path2798" />
+  <path
+     style="fill:none;stroke:#cecece;stroke-width:0.755906;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+     d="M 9.9779528,0.37795299 H 0.37795275 V 9.977953"
+     id="path13483" />
+  <path
+     style="fill:none;stroke:#cecece;stroke-width:0.755906;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+     d="M 9.9779528,203.6 H 0.37795275 V 194"
+     id="path13494" />
+  <path
+     style="fill:none;stroke:#cecece;stroke-width:0.755906;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+     d="m 313.536,203.6 h 9.6 V 194"
+     id="path13496" />
+  <path
+     style="fill:none;stroke:#cecece;stroke-width:0.755906;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+     d="m 313.536,0.385 h 9.6 v 9.592953"
+     id="path13507" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.9987px;line-height:1.25;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.349966"
+     x="-26.11841"
+     y="29.109175"
+     id="name"><tspan
+       id="first_row"
+       x="14.337793"
+       y="29.109175"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans Bold';text-align:start;text-anchor:start;stroke-width:0.349966">Lukacsne Dr. Merenyi</tspan><tspan
+       x="14.337793"
+       y="46.607536"
+       id="second_row"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Alegreya Sans';-inkscape-font-specification:'Alegreya Sans';text-align:start;text-anchor:start;stroke-width:0.349966">Orsolya</tspan></text>
+  <g
+     id="layer4-3"
+     transform="matrix(0.40197786,0,0,0.59241461,167.94043,47.161334)">
+    <g
+       id="barcode-group"
+       transform="matrix(4.48,0,0,3,-33.6,-0.9)">
+      <rect
+         x="2.54mm"
+         y="1mm"
+         width="0.40000001mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60597" />
+      <rect
+         x="3.1400001mm"
+         y="1mm"
+         width="0.2mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60599" />
+      <rect
+         x="3.74mm"
+         y="1mm"
+         width="0.60000002mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60601" />
+      <rect
+         x="4.7399998mm"
+         y="1mm"
+         width="0.2mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60603" />
+      <rect
+         x="5.54mm"
+         y="1mm"
+         width="0.40000001mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60605" />
+      <rect
+         x="6.54mm"
+         y="1mm"
+         width="0.2mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60607" />
+      <rect
+         x="6.9400001mm"
+         y="1mm"
+         width="0.2mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60609" />
+      <rect
+         x="7.54mm"
+         y="1mm"
+         width="0.40000001mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60611" />
+      <rect
+         x="8.54mm"
+         y="1mm"
+         width="0.2mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60613" />
+      <rect
+         x="9.1400003mm"
+         y="1mm"
+         width="0.2mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60615" />
+      <rect
+         x="9.9399996mm"
+         y="1mm"
+         width="0.40000001mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60617" />
+      <rect
+         x="10.54mm"
+         y="1mm"
+         width="0.60000002mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60619" />
+      <rect
+         x="11.34mm"
+         y="1mm"
+         width="0.2mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60621" />
+      <rect
+         x="12.14mm"
+         y="1mm"
+         width="0.2mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60623" />
+      <rect
+         x="12.54mm"
+         y="1mm"
+         width="0.80000001mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60625" />
+      <rect
+         x="13.54mm"
+         y="1mm"
+         width="0.2mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60627" />
+      <rect
+         x="13.94mm"
+         y="1mm"
+         width="0.60000002mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60629" />
+      <rect
+         x="14.74mm"
+         y="1mm"
+         width="0.40000001mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60631" />
+      <rect
+         x="15.74mm"
+         y="1mm"
+         width="0.2mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60633" />
+      <rect
+         x="16.34mm"
+         y="1mm"
+         width="0.2mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60635" />
+      <rect
+         x="17.34mm"
+         y="1mm"
+         width="0.40000001mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60637" />
+      <rect
+         x="17.940001mm"
+         y="1mm"
+         width="0.40000001mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60639" />
+      <rect
+         x="18.940001mm"
+         y="1mm"
+         width="0.60000002mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60641" />
+      <rect
+         x="19.74mm"
+         y="1mm"
+         width="0.2mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60643" />
+      <rect
+         x="20.139999mm"
+         y="1mm"
+         width="0.40000001mm"
+         height="15mm"
+         style="fill:#000000"
+         id="rect60645" />
+    </g>
+  </g>
+  <path
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.849613px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 157.19006,116.66853 163.17472,45.83373 -138.63809,62.32653 z"
+     id="path65359" />
+  <path
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.849613px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 157.19006,93.988408 320.36478,48.154673 181.72669,-14.171859 Z"
+     id="path65392" />
 </svg>
