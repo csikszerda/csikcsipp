@@ -147,7 +147,6 @@ async function main() {
   }
 
   async function retrieveGifsFromSheetsOrDefault(config, jwt, defaultGifs) {
-    const response = await retrieveGifsFromSheets(config, jwt);
     let retrievedGifs = null;
     try {
       const response = await retrieveGifsFromSheets(config, jwt);
@@ -165,12 +164,51 @@ async function main() {
     }
   }
 
-  function chooseForDay(gifs) {
+  function createRng(state) {
+    let offset = 0;
+    function nextState() {
+      state = nacl.hash(new Uint8Array(state)).buffer;
+      offset = 0;
+    }
+    return {
+      getUint32: function() {
+        const size = 4;
+        if (offset + size > 32) {
+          nextState();
+        }
+        const value = new DataView(state, offset).getUint32();
+        offset += size;
+        return value;
+      },
+      getUint16: function() {
+        const size = 2;
+        if (offset + size > 32) {
+          nextState();
+        }
+        const value = new DataView(state, offset).getUint16();
+        offset += size;
+        return value;
+      }
+    }
+  }
+
+  function fisherYates(rng, array) {
+    for (let i = 0; i < array.length - 1; i++) {
+      const j = i + rng.getUint16() % (array.length - i);
+      const s = array[i];
+      array[i] = array[j];
+      array[j] = s;
+    }
+  }
+
+  function chooseForDay(gifsOrig) {
+    const gifs = Array.from(gifsOrig);
     const weeksSinceEpoch = Math.floor(((new Date() / (1000 * 60 * 60 * 24) - 2) / 7) - 7); // -2 day offset so that it changes on Sat. The week offset is arbitrary.
-    console.log(weeksSinceEpoch);
     const hash = nacl.hash(new TextEncoder().encode(weeksSinceEpoch.toString()));
-    const i = new DataView(hash.buffer, 0).getUint32();
-    return gifs[i % gifs.length];
+    const rng = createRng(hash.buffer);
+    fisherYates(rng, gifs);
+    const gif = gifs[weeksSinceEpoch % gifs.length];
+    return gif;
   }
   const yayGifs = await retrieveGifsFromSheetsOrDefault(secret.config, await getJwt(), yayGifsDefault);
   const yayGif = chooseForDay(yayGifs);
