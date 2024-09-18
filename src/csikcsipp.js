@@ -318,11 +318,9 @@ async function main() {
   function chooseForDay(gifsOrig) {
     const gifs = Array.from(gifsOrig);
     const weeksSinceEpoch = Math.floor(
-      (new Date() / (1000 * 60 * 60 * 24) - 2) / 7 - 7
+      (new Date() / (1000 * 60 * 60 * 24) - 2) / 7 - 15
     ); // -2 day offset so that it changes on Sat. The week offset is arbitrary.
-    const hash = nacl.hash(
-      new TextEncoder().encode(weeksSinceEpoch.toString())
-    );
+    const hash = nacl.hash(new TextEncoder().encode(gifs.length));
     const rng = createRng(hash.buffer);
     fisherYates(rng, gifs);
     const gif = gifs[weeksSinceEpoch % gifs.length];
@@ -330,27 +328,32 @@ async function main() {
   }
 
   // Message display without gif stuff
-  function displayMessage(fontSize, textColor, text) {
-    console.log("displayMessage");
+  function displayFloatingMessage(fontSize, textColor, text) {
     const element = document.getElementById("floatingtext");
     element.textContent = text;
     element.style.color = textColor;
     element.style.fontSize = fontSize;
   }
-  function clearMessage() {
-    console.log("clearMessage");
+  function clearFloatingMessage() {
     const element = document.getElementById("floatingtext");
     element.textContent = "";
   }
   let displayMessageTimeoutId = null;
-  function displayMessageWithTimeout(delay, fontSize, textColor, text) {
-    displayMessage(fontSize, textColor, text);
+  function displayFloatingMessageWithTimeout(delay, fontSize, textColor, text) {
+    displayFloatingMessage(fontSize, textColor, text);
     if (displayMessageTimeoutId != null) {
       clearTimeout(displayMessageTimeoutId);
     }
     displayMessageTimeoutId = setTimeout(() => {
-      clearMessage();
+      clearFloatingMessage();
     }, delay * 1000);
+  }
+
+  function displayBottomMessage(fontSize, textColor, text) {
+    const element = document.getElementById("bottomtext");
+    element.textContent = text;
+    element.style.color = textColor;
+    element.style.fontSize = fontSize;
   }
 
   const yayGifs = await retrieveGifsFromSheetsOrDefault(
@@ -375,12 +378,7 @@ async function main() {
     await getJwt()
   );
   const pickedCategoryIndex = await promptChoice(categories);
-  displayMessageWithTimeout(
-    5,
-    "20vw",
-    "lightgreen",
-    categories[pickedCategoryIndex]
-  );
+  displayBottomMessage("20vw", "lightgray", categories[pickedCategoryIndex]);
 
   let keyBuffer = "";
   document.addEventListener("keypress", async (event) => {
@@ -405,13 +403,12 @@ async function main() {
 
   let gifFreezeTimeoutId = null;
   function scheduleGifFreeze(delay) {
-    console.log("scheduleGifFreeze");
     if (gifFreezeTimeoutId != null) {
       clearTimeout(gifFreezeTimeoutId);
     }
     gifFreezeTimeoutId = setTimeout(() => {
       freezeGif();
-      clearMessage();
+      clearFloatingMessage();
     }, delay * 1000);
   }
   function createFrozenGifImg(gifImg) {
@@ -469,7 +466,7 @@ async function main() {
     text
   ) {
     unfreezeGif(img);
-    displayMessage(fontSize, textColor, text);
+    displayFloatingMessage(fontSize, textColor, text);
     scheduleGifFreeze(delay);
   }
   freezeGif();
