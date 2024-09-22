@@ -515,9 +515,13 @@ async function main() {
       const deduplicatedQueue = [];
       let last = null;
       for (const row of queue) {
-        if (last != row[3]) {
+        // We don't look at the timestamp or location(index 0, 1) for
+        // determining whether an event is a duplicate
+        const current = JSON.stringify(row.slice(2));
+        console.log(current);
+        if (last === null || current != last) {
           deduplicatedQueue.push(row);
-          last = row[3];
+          last = current;
         }
       }
       const response = await sendDataToSheets(
