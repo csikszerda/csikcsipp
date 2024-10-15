@@ -227,9 +227,12 @@ async function main() {
       }
     );
     const json = await response.json();
-    const categories = json.values.flatMap((list) =>
-      list[1] == "TRUE" ? [list[0]] : []
-    );
+    const categories = [];
+    for (let i = 0; i < json.values.length; i++) {
+      if (json.values[i][1] === "TRUE") {
+        categories.push({ category: json.values[i][0], index: i });
+      }
+    }
 
     return categories;
   }
@@ -255,21 +258,21 @@ async function main() {
     }
   }
 
-  async function promptChoice(choices) {
+  async function promptCategory(categories) {
     return new Promise((resolve) => {
       const dialog = document.createElement("dialog");
       const container = document.getElementById(
         "prompt_choice_modal_container"
       );
-      for (let i = 0; i < choices.length; i++) {
+      for (let i = 0; i < categories.length; i++) {
         const button = document.createElement("input");
         // <input type="button" id="fullscreen" value="Fullscreen"  style="justify-self: start;"/>
         button.setAttribute("type", "button");
-        button.setAttribute("value", choices[i]);
+        button.setAttribute("value", categories[i].category);
         button.style.fontSize = "10vw";
         button.addEventListener("click", (_event) => {
           container.removeChild(dialog);
-          resolve(i);
+          resolve(categories[i]);
         });
         dialog.appendChild(button);
       }
@@ -377,8 +380,8 @@ async function main() {
     secret.config,
     await getJwt()
   );
-  const pickedCategoryIndex = await promptChoice(categories);
-  displayBottomMessage("20vw", "lightgray", categories[pickedCategoryIndex]);
+  const pickedCategory = await promptCategory(categories);
+  displayBottomMessage("20vw", "lightgray", pickedCategory.category);
 
   let keyBuffer = "";
   document.addEventListener("keypress", async (event) => {
@@ -595,7 +598,7 @@ async function main() {
       location,
       time.toISOString(),
       id,
-      `=csippkategoriak!$A$${pickedCategoryIndex + 2}`,
+      `=csippkategoriak!$A$${pickedCategory.index + 2}`,
     ]);
     window.localStorage.setItem("raw_input_queue", JSON.stringify(queue));
     setDisplayQueueSize(queue.length);
