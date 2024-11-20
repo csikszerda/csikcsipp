@@ -114,6 +114,7 @@ function decryptSecret(password) {
 }
 
 async function main() {
+  "use strict";
   const locationPromise = new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(resolve, reject);
   });
@@ -359,6 +360,7 @@ async function main() {
     element.style.fontSize = fontSize;
   }
 
+  console.log("Retrieving gifs from sheet");
   const yayGifs = await retrieveGifsFromSheetsOrDefault(
     secret.config,
     await getJwt(),
@@ -376,33 +378,14 @@ async function main() {
   const nayGifSize = nayGif[2];
   const nayGifText = nayGif[3];
 
+  console.log("Retrieving categories");
+
   const categories = await retrieveCategoriesFromSheets(
     secret.config,
     await getJwt()
   );
   const pickedCategory = await promptCategory(categories);
   displayBottomMessage("20vw", "lightgray", pickedCategory.category);
-
-  let keyBuffer = "";
-  document.addEventListener("keypress", async (event) => {
-    event.preventDefault();
-    if (event.key === "Enter") {
-      try {
-        const location = await locationPromise;
-        const time = new Date();
-        await enqueueRawInput(
-          `${location.coords.latitude},${location.coords.longitude}`,
-          time,
-          keyBuffer
-        );
-        keyBuffer = "";
-      } catch (exception) {
-        setDisplayedError(exception);
-      }
-    } else {
-      keyBuffer += event.key;
-    }
-  });
 
   let gifFreezeTimeoutId = null;
   function scheduleGifFreeze(delay) {
@@ -430,13 +413,16 @@ async function main() {
       img.onload = resolve;
     });
   }
+  console.log("Downloading " + yayGifUrl + " and " + nayGifUrl);
   const yayGifImg = new Image();
   yayGifImg.src = yayGifUrl;
   yayGifImg.style = "width: 100%";
   const nayGifImg = new Image();
   nayGifImg.src = nayGifUrl;
   nayGifImg.style = "width: 100%";
-  await Promise.all([waitForImgLoad(yayGifImg), waitForImgLoad(nayGifImg)]);
+  // await Promise.all([waitForImgLoad(yayGifImg), waitForImgLoad(nayGifImg)]);
+
+  console.log("Creating frozen gifs");
   const frozenYayGifImg = createFrozenGifImg(yayGifImg);
 
   const origGifImg = document.images.namedItem("original_gif");
@@ -493,20 +479,11 @@ async function main() {
     return response;
   }
 
-  function initTimer() {
-    let timeoutId = null;
+  const poke = {
+    run: null,
+  };
 
-    return () => {
-      if (timeoutId === null) {
-        timeoutId = setTimeout(async () => {
-          timeoutId = null;
-          await timeoutHandler();
-        }, 20 * 1000);
-      }
-    };
-  }
-
-  async function timeoutHandler() {
+  const timeoutHandler = async () => {
     try {
       const queue = JSON.parse(
         window.localStorage.getItem("raw_input_queue") ?? "[]"
@@ -527,6 +504,7 @@ async function main() {
           last = current;
         }
       }
+      console.log("sending");
       const response = await sendDataToSheets(
         secret.config,
         await getJwt(),
@@ -546,9 +524,25 @@ async function main() {
       clearDisplayedError();
     } catch (exception) {
       setDisplayedError(exception);
-      poke();
+      poke.run();
     }
-  }
+  };
+
+  const initTimer = () => {
+    let timeoutId = null;
+
+    return () => {
+      if (timeoutId === null) {
+        timeoutId = setTimeout(async () => {
+          timeoutId = null;
+          await timeoutHandler();
+        }, 20 * 1000);
+      }
+    };
+  };
+
+  poke.run = initTimer();
+  poke.run();
 
   function setDisplayedError(exception) {
     console.log(exception);
@@ -568,13 +562,10 @@ async function main() {
     JSON.parse(window.localStorage.getItem("raw_input_queue") ?? "[]").length
   );
 
-  const poke = initTimer();
-  poke();
-
   const noSleep = new NoSleep();
   noSleep.enable();
 
-  async function enqueueRawInput(location, time, id) {
+  const enqueueRawInput = async (location, time, id) => {
     const validCode = /(CSIK)?(\d{10})/;
     const codeMatch = id.match(validCode);
     if (codeMatch === null) {
@@ -601,7 +592,7 @@ async function main() {
     ]);
     window.localStorage.setItem("raw_input_queue", JSON.stringify(queue));
     setDisplayQueueSize(queue.length);
-    poke();
+    poke.run();
     displayMessageWithGifUnfreeze(
       yayGifImg,
       yayGifDelay,
@@ -609,7 +600,30 @@ async function main() {
       "lightgreen",
       yayGifText
     );
-  }
+  };
+
+  let keyBuffer = "";
+  document.addEventListener("keypress", async (event) => {
+    console.log("wat");
+    event.preventDefault();
+    if (event.key === "Enter") {
+      try {
+        const location = await locationPromise;
+        const time = new Date();
+        await enqueueRawInput(
+          `${location.coords.latitude},${location.coords.longitude}`,
+          time,
+          keyBuffer
+        );
+        console.log("enqueued");
+        keyBuffer = "";
+      } catch (exception) {
+        setDisplayedError(exception);
+      }
+    } else {
+      keyBuffer += event.key;
+    }
+  });
 }
 
 window.addEventListener("load", async () => {
