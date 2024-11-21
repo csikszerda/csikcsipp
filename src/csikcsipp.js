@@ -2,8 +2,8 @@ import * as jose from "https://cdnjs.cloudflare.com/ajax/libs/jose/4.14.4/index.
 
 const encryptedSecret = {
   secret:
-    "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",
-  nonce: "6CfeTkjfZ88IsLfkjYp72qa00ToFpT6y",
+    "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",
+  nonce: "RMWG41oBtqMCdoBA9WUpYtB2uVsSbeaJ",
 };
 
 const yayGifsDefault = [
@@ -132,9 +132,8 @@ async function main() {
       .sign(privateKey);
   }
 
-  async function getSecret() {
-    const passwordStorageKey = "secret_password";
-
+  const passwordStorageKey = "secret_password";
+  const getSecret = async () => {
     let success = false;
     let errorMessage = null;
     let password = window.localStorage.getItem(passwordStorageKey);
@@ -167,12 +166,12 @@ async function main() {
       window.localStorage.setItem(passwordStorageKey, password);
     }
     return secret;
-  }
+  };
 
-  function resetSecret() {
+  const resetSecret = () => {
     window.localStorage.removeItem(passwordStorageKey);
     location.reload();
-  }
+  };
   document
     .getElementById("reset_secret")
     .addEventListener("click", (_event) => {
@@ -204,7 +203,7 @@ async function main() {
   async function retrieveGifsFromSheets(config, jwt) {
     const range = "gifek!A2:A";
     const response = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheet_id}/values/${range}?majorDimension=ROWS`,
+      `https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheet_read_id}/values/${range}?majorDimension=ROWS`,
       {
         method: "GET",
         headers: {
@@ -219,7 +218,7 @@ async function main() {
   async function retrieveCategoriesFromSheets(config, jwt) {
     const range = "csippkategoriak!A2:B";
     const response = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheet_id}/values/${range}?majorDimension=ROWS`,
+      `https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheet_read_id}/values/${range}?majorDimension=ROWS`,
       {
         method: "GET",
         headers: {
@@ -408,19 +407,32 @@ async function main() {
     return c;
   }
 
-  async function waitForImgLoad(img) {
+  async function waitForImgLoad(img, timeout) {
+    let loaded = false;
     return new Promise((resolve) => {
-      img.onload = resolve;
+      img.onload = () => {
+        resolve();
+        loaded = true;
+      };
+      setTimeout(() => {
+        if (!loaded) {
+          console.log("Timed out loading " + img.src);
+          resolve();
+        }
+      }, timeout);
     });
   }
-  console.log("Downloading " + yayGifUrl + " and " + nayGifUrl);
   const yayGifImg = new Image();
   yayGifImg.src = yayGifUrl;
   yayGifImg.style = "width: 100%";
   const nayGifImg = new Image();
   nayGifImg.src = nayGifUrl;
   nayGifImg.style = "width: 100%";
-  // await Promise.all([waitForImgLoad(yayGifImg), waitForImgLoad(nayGifImg)]);
+  console.log("Loading gifs...");
+  await Promise.all([
+    waitForImgLoad(yayGifImg, 5 * 1000),
+    waitForImgLoad(nayGifImg, 5 * 1000),
+  ]);
 
   console.log("Creating frozen gifs");
   const frozenYayGifImg = createFrozenGifImg(yayGifImg);
@@ -498,13 +510,11 @@ async function main() {
         // We don't look at the timestamp or location(index 0, 1) for
         // determining whether an event is a duplicate
         const current = JSON.stringify(row.slice(2));
-        console.log(current);
         if (last === null || current != last) {
           deduplicatedQueue.push(row);
           last = current;
         }
       }
-      console.log("sending");
       const response = await sendDataToSheets(
         secret.config,
         await getJwt(),
@@ -513,6 +523,7 @@ async function main() {
       if (!response.ok) {
         throw new Error(await response.text());
       }
+      console.log("Sent " + deduplicatedQueue.length + " csipps successfully");
       // Refetch the queue as we may have inserted new items.
       const freshQueue = JSON.parse(
         window.localStorage.getItem("raw_input_queue") ?? "[]"
@@ -604,7 +615,6 @@ async function main() {
 
   let keyBuffer = "";
   document.addEventListener("keypress", async (event) => {
-    console.log("wat");
     event.preventDefault();
     if (event.key === "Enter") {
       try {
@@ -615,7 +625,6 @@ async function main() {
           time,
           keyBuffer
         );
-        console.log("enqueued");
         keyBuffer = "";
       } catch (exception) {
         setDisplayedError(exception);
