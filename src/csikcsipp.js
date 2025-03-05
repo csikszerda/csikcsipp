@@ -577,7 +577,7 @@ async function main() {
   noSleep.enable();
 
   const enqueueRawInput = async (location, time, id) => {
-    const validCode = /(CSIK)?(\d{10})/;
+    const validCode = /^(CSIK)?(\d{10})$/;
     const codeMatch = id.match(validCode);
     if (codeMatch === null) {
       // invalid ID
