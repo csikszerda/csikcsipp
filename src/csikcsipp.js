@@ -355,7 +355,7 @@ async function main() {
   function displayBottomMessage(fontSize, textColor, text) {
     const element = document.getElementById("bottomtext");
     element.textContent = text;
-    element.style.color = textColor;
+    // element.style.color = textColor;
     element.style.fontSize = fontSize;
   }
 
