@@ -384,7 +384,7 @@ async function main() {
     await getJwt()
   );
   const pickedCategory = await promptCategory(categories);
-  displayBottomMessage("20vw", "lightgray", pickedCategory.category);
+  displayBottomMessage("20vw", "white", pickedCategory.category);
 
   let gifFreezeTimeoutId = null;
   function scheduleGifFreeze(delay) {
