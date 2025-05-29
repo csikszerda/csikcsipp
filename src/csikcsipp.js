@@ -355,8 +355,10 @@ async function main() {
   function displayBottomMessage(fontSize, textColor, text) {
     const element = document.getElementById("bottomtext");
     element.textContent = text;
-    // element.style.color = textColor;
+    element.style.fontFamily = "Monospace";
+    element.style.color = textColor;
     element.style.fontSize = fontSize;
+    element.style["-webkit-text-stroke"] = "unset";
   }
 
   console.log("Retrieving gifs from sheet");
@@ -384,7 +386,7 @@ async function main() {
     await getJwt()
   );
   const pickedCategory = await promptCategory(categories);
-  displayBottomMessage("20vw", "white", pickedCategory.category);
+  displayBottomMessage("20vw", "lightgray", pickedCategory.category);
 
   let gifFreezeTimeoutId = null;
   function scheduleGifFreeze(delay) {
